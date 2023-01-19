@@ -21,6 +21,8 @@ i486SL	N/A	Has FPU, has CPUID
 #include <dos.h>
 #include <stdio.h>
 
+#define VERSION "0.0.1"
+
 enum	/* CPU Type */
 {
 	CPU_UNKNOWN,
@@ -396,15 +398,23 @@ int main(int argc, char **argv)
 				regs.highECX, regs.CX,
 				regs.highEDX, regs.DX);
 			return 0;
-		case 'v': puts("Version 1.0"); return 0;
+		case 'v':
+			fputs(
+				"SYSLORE " VERSION "\n"
+				"Copyright (c) 2023 dd86k <dd@dax.moe>\n"
+				"License: BSD-3-Clause-Clear\n"
+				"Home: <https://github.com/dd86k/syslore>\n",
+				stdout);
+			return 0;
 		case 'h':
 		case '?':
-			puts(
-			"SYSLORE - Real-mode processor information\n"
-			"\n"
-			"OPTIONS\n"
-			"c NUM    Call CPUID with leaf NUM.\n"
-			);
+			fputs(
+				"SYSLORE - Real-mode processor information\n"
+				"\n"
+				"OPTIONS\n"
+				"-c LEAF    Call CPUID with EAX=LEAF\n"
+				"-v         Show version page\n",
+				stdout);
 			return 0;
 		default:
 			fprintf(stderr, "what is -%c?\n", opt);
