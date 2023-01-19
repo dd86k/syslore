@@ -1,0 +1,3 @@
+@ECHO OFF
+
+TCC -f- SYSLORE.C
