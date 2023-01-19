@@ -388,7 +388,7 @@ int main(int argc, char **argv)
 			/* TODO: Check CPUID */
 			if (sscanf(optarg, "%i", &leaf) != 1)
 			{
-				fprintf(stderr, "NaN: %s", optarg);
+				fprintf(stderr, "error: NaN: %s\n", optarg);
 				return 1;
 			}
 			cpuid(&regs, leaf);
