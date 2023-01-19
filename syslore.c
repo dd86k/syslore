@@ -256,18 +256,17 @@ void cpuinfo(int *cpu, int *fpu)
 	}
 	
 	hasfpu = *fpu != FPU_NONE;
+	if (hasfpu) *fpu = FPU_x87;
 	
 	/* Early i486SX/DX models */
 	if (hascpuid() == 0)
 	{
 		*cpu = hasfpu ? CPU_i486DX : CPU_i486SX;
-		if (hasfpu) *fpu = FPU_x87;
 		return;
 	}
 	
 	/* Later i486SX/DX/SL/GX models, Pentium, etc. */
-	*fpu = FPU_x87;
-	cpuid(&regs, 1);
+	/* cpuid(&regs, 1); */
 }
 
 void dosver(unsigned char *major, unsigned char *minor)
