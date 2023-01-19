@@ -21,7 +21,7 @@ i486SL	N/A	Has FPU, has CPUID
 #include <dos.h>
 #include <stdio.h>
 
-#define VERSION "0.0.1"
+#define VERSION "0.0.2"
 
 enum	/* CPU Type */
 {
