@@ -18,7 +18,6 @@ i486SL	N/A	Has FPU, has CPUID
 
 #include <errno.h>
 #include <string.h>
-#include <dos.h>
 #include <stdio.h>
 
 #define VERSION "0.0.2"
