@@ -261,7 +261,7 @@ void cpuinfo(int *cpu, int *fpu)
 	/* Early i486SX/DX models */
 	if (hascpuid() == 0)
 	{
-		*cpu = hasfpu ? CPU_i486SX : CPU_i486DX;
+		*cpu = hasfpu ? CPU_i486DX : CPU_i486SX;
 		if (hasfpu) *fpu = FPU_x87;
 		return;
 	}
